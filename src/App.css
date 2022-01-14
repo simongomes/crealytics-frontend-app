@@ -2,7 +2,7 @@
   text-align: center;
 }
 .app-wrapper {
-  max-width: 850px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .search-bar-wrapper {
@@ -13,4 +13,28 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #bdbdbd;
+}
+
+.products-container-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  margin-top: 20px;
+}
+
+.product-item-wrapper {
+  margin: 5px;
+}
+
+.product-container {
+  padding: 10px;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.product-container .product-thumbnail {
+  height: 150px;
+  text-align: center;
+}
+.product-container .product-thumbnail img {
+  height: 100%
 }

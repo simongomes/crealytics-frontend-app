@@ -1,4 +1,5 @@
 import "./App.css";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <div className="search-bar-wrapper">
         <input type="text" name="search" placeholder="search..." />
       </div>
+      <Products />
     </div>
   );
 }
