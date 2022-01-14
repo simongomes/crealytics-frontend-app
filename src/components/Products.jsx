@@ -4,6 +4,7 @@ import ProductItem from "./ProductItem";
 
 const Products = () => {
   const products = useSelector((state) => state.products.products);
+
   return (
     <div className="products-container-wrapper">
       {products.map((product, index) => (

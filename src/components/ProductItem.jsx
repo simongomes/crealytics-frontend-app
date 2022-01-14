@@ -15,7 +15,25 @@ const ProductItem = (props) => {
         <div className="product-thumbnail">
           <img src={image_link} alt={title} />
         </div>
-        <div className="product-content"></div>
+        <div className="product-content">
+          <h5>{title}</h5>
+          <p>
+            <strong>Gtin:</strong> {gtin}
+          </p>
+          <p>
+            <strong>Gender:</strong> {gender}
+          </p>
+          <div className="product-prices">
+            <div>
+              <strong>Price:</strong> <br />
+              {price}
+            </div>
+            <div>
+              <strong>Sale Price:</strong> <br />
+              {sale_price}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
