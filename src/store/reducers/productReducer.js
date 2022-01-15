@@ -3,6 +3,7 @@ import { products } from "../../utils/datastore";
 
 const initialState = {
   products: products.slice(0, 100),
+  showDetails: false,
 };
 
 export const productSlice = createSlice({
@@ -23,9 +24,17 @@ export const productSlice = createSlice({
         )
         .slice(0, 100);
     },
+    /**
+     * Toggle showDetails to show and hide product details modal
+     *
+     * @param state - the state object
+     */
+    toggleDetails: (state) => {
+      state.showDetails = !state.showDetails;
+    },
   },
 });
 
-export const { search } = productSlice.actions;
+export const { search, toggleDetails } = productSlice.actions;
 
 export default productSlice.reducer;
