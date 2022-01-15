@@ -5,6 +5,7 @@ import {
   updateSearchTerm,
   search,
   updateFilter,
+  paginate,
 } from "./store/reducers/productReducer";
 
 function App() {
@@ -52,6 +53,14 @@ function App() {
         </label>
       </div>
       <Products />
+      <div className="pagination-wrapper">
+        <div className="left" onClick={() => dispatch(paginate("left"))}>
+          {"<<"}
+        </div>
+        <div className="right" onClick={() => dispatch(paginate("right"))}>
+          {">>"}
+        </div>
+      </div>
     </div>
   );
 }

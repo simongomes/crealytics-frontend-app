@@ -4,7 +4,8 @@ import { products } from "../../utils/datastore";
 const initialState = {
   products: products.slice(0, 100),
   totalProducts: products,
-  totalPages: products.length / 100,
+  totalPages: Math.ceil(products.length / 100),
+  currentPage: 1,
   searchTerm: "",
   showDetails: false,
   productDetails: {},
@@ -58,6 +59,8 @@ export const productSlice = createSlice({
       }
 
       state.totalProducts = state.products;
+      state.totalPages = Math.ceil(state.totalProducts.length / 100);
+      state.currentPage = 1;
 
       state.products = state.products.slice(0, 100);
     },
@@ -92,6 +95,24 @@ export const productSlice = createSlice({
           action.payload.value === "-1" ? null : action.payload.value;
       }
     },
+    paginate: (state, { payload }) => {
+      switch (payload) {
+        case "left":
+          if (state.currentPage > 1) {
+            state.currentPage--;
+          }
+          break;
+        case "right":
+          if (state.currentPage < state.totalPages) {
+            state.currentPage++;
+          }
+          break;
+        default:
+          break;
+      }
+      const lastIndex = state.currentPage * 100;
+      state.products = state.totalProducts.slice(lastIndex - 100, lastIndex);
+    },
   },
 });
 
@@ -101,6 +122,7 @@ export const {
   toggleDetails,
   setProductDetails,
   updateFilter,
+  paginate,
 } = productSlice.actions;
 
 export default productSlice.reducer;

@@ -95,3 +95,17 @@
 .product-details-additional-images img {
   max-width: 100%;
 }
+
+/* Pagination Styles */
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-wrapper div {
+  border: 1px solid #bdbdbd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
