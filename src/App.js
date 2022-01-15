@@ -1,14 +1,31 @@
 import "./App.css";
 import Products from "./components/Products";
 import { useDispatch } from "react-redux";
-import { search } from "./store/reducers/productReducer";
+import {
+  updateSearchTerm,
+  search,
+  updateFilter,
+} from "./store/reducers/productReducer";
 
 function App() {
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
     const term = e.target.value;
-    dispatch(search(term));
+    dispatch(updateSearchTerm(term));
+    dispatch(search());
+  };
+
+  const handlSaleFilter = (e) => {
+    const value = e.target.checked;
+    dispatch(updateFilter({ filterType: "sale", value }));
+    dispatch(search(""));
+  };
+
+  const handleGenderFilter = (e) => {
+    const value = e.target.value;
+    dispatch(updateFilter({ filterType: "gender", value }));
+    dispatch(search(""));
   };
 
   return (
@@ -21,6 +38,18 @@ function App() {
           placeholder="search..."
           onInput={handleSearch}
         />
+      </div>
+      <div className="filter-wrapper">
+        Filter:{" "}
+        <select onChange={handleGenderFilter}>
+          <option value="-1">Select and Option</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="unisex">Unisex</option>
+        </select>{" "}
+        <label>
+          Sale <input type="checkbox" name="sale" onChange={handlSaleFilter} />
+        </label>
       </div>
       <Products />
     </div>
