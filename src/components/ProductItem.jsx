@@ -1,16 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleDetails } from "../store/reducers/productReducer";
+import { setProductDetails, toggleDetails } from "../store/reducers/productReducer";
 
 const ProductItem = (props) => {
   const { title, gtin, gender, sale_price, price, image_link } = props.product;
 
   const dispatch = useDispatch();
 
+  const handleProductClick = () => {
+    dispatch(setProductDetails(props.product))
+    dispatch(toggleDetails())
+  }
+
   return (
     <div
       className="product-item-wrapper"
-      onClick={() => dispatch(toggleDetails())}
+      onClick={handleProductClick}
     >
       <div className="product-container">
         <div className="product-thumbnail">

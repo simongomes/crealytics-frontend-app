@@ -4,6 +4,7 @@ import { products } from "../../utils/datastore";
 const initialState = {
   products: products.slice(0, 100),
   showDetails: false,
+  productDetails: {},
 };
 
 export const productSlice = createSlice({
@@ -32,9 +33,18 @@ export const productSlice = createSlice({
     toggleDetails: (state) => {
       state.showDetails = !state.showDetails;
     },
+    /**
+     * Set the product details object with the selected product
+     * 
+     * @param state - the state object
+     * @param action - contains the selected product object
+     */
+    setProductDetails: (state, {payload}) => {
+      state.productDetails = payload;
+    }
   },
 });
 
-export const { search, toggleDetails } = productSlice.actions;
+export const { search, toggleDetails, setProductDetails } = productSlice.actions;
 
 export default productSlice.reducer;
