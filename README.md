@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Crealytics Frontend App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About App
+
+- A eCommerce product listing app created with react, showcases a list product from product database.
+- Contains search functionality. You can search through products using the search bar at the top.
+- Contains filter functionality. You can filter through gender and can see which product on sale.
+
+## Installation
+
+```
+git clone https://github.com/simongomes/crealytics-frontend-app.git
+cd crealytics-frontend-app
+npm install
+```
 
 ## Available Scripts
 
@@ -29,42 +41,17 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Libraries and Packages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React
+- Redux Toolkit
+- Jest
+- @testing-library/user-event
+- react-async-image
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Important Folders
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `src/component` - Contains the UI components.
+- `src/store` - Contains the redux store and app state configurations.
+- `src/tests` - Contains the necessery test cases for the app to validate component renders and functionality.
+- `src/utils` - Contains the products data for the app.
