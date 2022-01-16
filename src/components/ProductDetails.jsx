@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleDetails } from "../store/reducers/productReducer";
+import Image from "react-async-image";
 
 const ProductDetails = () => {
   const product = useSelector((state) => state.products.productDetails);
@@ -18,7 +19,7 @@ const ProductDetails = () => {
         <div className="product-item-wrapper">
           <div className="product-container">
             <div className="product-thumbnail">
-              <img src={product.image_link} alt={product.title} />
+              <Image src={product.image_link} alt={product.title} />
             </div>
             <div className="product-content">
               <h5>{product.title}</h5>
@@ -44,7 +45,7 @@ const ProductDetails = () => {
             </div>
             <div className="product-details-additional-images">
               {product.additional_image_link?.split(",").map((image, index) => (
-                <img key={index} src={image} alt="additional" />
+                <Image key={index} src={image} alt="additional" />
               ))}
             </div>
           </div>
