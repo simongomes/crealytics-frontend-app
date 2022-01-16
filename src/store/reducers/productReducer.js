@@ -45,7 +45,8 @@ export const productSlice = createSlice({
         state.products = state.totalProducts.filter(
           (product) =>
             product.gender === state.filters.gender &&
-            product.sale_price.split(" ")[0] < product.price.split(" ")[0]
+            Number(product.sale_price.split(" ")[0]) <
+              Number(product.price.split(" ")[0])
         );
       } else if (state.filters.gender) {
         state.products = state.totalProducts.filter(
@@ -76,7 +77,7 @@ export const productSlice = createSlice({
      * Set the product details object with the selected product
      *
      * @param state - the state object
-     * @param action - contains the selected product object
+     * @param action - contains the selected product object - [value: product object]
      */
     setProductDetails: (state, { payload }) => {
       state.productDetails = payload;
@@ -85,7 +86,7 @@ export const productSlice = createSlice({
      * Updates the filter object
      *
      * @param state - the state object
-     * @param action - action object passed while dispatched
+     * @param action - action object passed while dispatched - [values: 'sale'|'gender']
      */
     updateFilter: (state, action) => {
       if (action.payload.filterType === "sale") {
@@ -95,6 +96,12 @@ export const productSlice = createSlice({
           action.payload.value === "-1" ? null : action.payload.value;
       }
     },
+    /**
+     * Paginate the product list view
+     *
+     * @param state - the state object
+     * @param action - action object passed while dispatched - [values: 'left'|'right']
+     */
     paginate: (state, { payload }) => {
       switch (payload) {
         case "left":

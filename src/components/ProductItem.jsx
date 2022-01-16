@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setProductDetails, toggleDetails } from "../store/reducers/productReducer";
+import {
+  setProductDetails,
+  toggleDetails,
+} from "../store/reducers/productReducer";
 
 const ProductItem = (props) => {
   const { title, gtin, gender, sale_price, price, image_link } = props.product;
@@ -8,15 +11,12 @@ const ProductItem = (props) => {
   const dispatch = useDispatch();
 
   const handleProductClick = () => {
-    dispatch(setProductDetails(props.product))
-    dispatch(toggleDetails())
-  }
+    dispatch(setProductDetails(props.product));
+    dispatch(toggleDetails());
+  };
 
   return (
-    <div
-      className="product-item-wrapper"
-      onClick={handleProductClick}
-    >
+    <div className="product-item-wrapper" onClick={handleProductClick}>
       <div className="product-container">
         <div className="product-thumbnail">
           <img src={image_link} alt={title} />
@@ -27,7 +27,8 @@ const ProductItem = (props) => {
             <strong>Gtin:</strong> {gtin}
           </p>
           <p>
-            <strong>Gender:</strong> {gender}
+            <strong>Gender:</strong>{" "}
+            {["male", "female", "unisex"].includes(gender) ? gender : "unknown"}
           </p>
           <div className="product-prices">
             <div>

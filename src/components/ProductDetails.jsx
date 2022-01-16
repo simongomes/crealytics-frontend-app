@@ -3,15 +3,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleDetails } from "../store/reducers/productReducer";
 
 const ProductDetails = () => {
-
   const product = useSelector((state) => state.products.productDetails);
-  
   const dispatch = useDispatch();
 
   return (
     <div className="product-details-wrapper">
       <div className="product-details-container">
-        <span className="product-details-close-button" onClick={() => dispatch(toggleDetails())}>X</span>
+        <span
+          className="product-details-close-button"
+          onClick={() => dispatch(toggleDetails())}
+        >
+          X
+        </span>
         <div className="product-item-wrapper">
           <div className="product-container">
             <div className="product-thumbnail">
@@ -23,7 +26,10 @@ const ProductDetails = () => {
                 <strong>Gtin:</strong> {product.gtin}
               </p>
               <p>
-                <strong>Gender:</strong> {product.gender}
+                <strong>Gender:</strong>{" "}
+                {["male", "female", "unisex"].includes(product.gender)
+                  ? product.gender
+                  : "unknown"}
               </p>
               <div className="product-prices">
                 <div>
@@ -37,7 +43,7 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="product-details-additional-images">
-              {product.additional_image_link.split(",").map((image, index) => (
+              {product.additional_image_link?.split(",").map((image, index) => (
                 <img key={index} src={image} alt="additional" />
               ))}
             </div>
