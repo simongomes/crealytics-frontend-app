@@ -50,7 +50,7 @@ function App() {
           <option value="unisex">Unisex</option>
         </select>{" "}
         <label>
-          Sale{" "}
+          On Sale{" "}
           <input
             type="checkbox"
             name="sale"
