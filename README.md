@@ -2,7 +2,7 @@
 
 ## About App
 
-- A eCommerce product listing app created with react, showcases a list product from product database.
+- A eCommerce product listing app created with react, showcases a list of product from product database.
 - Contains search functionality. You can search through products using the search bar at the top.
 - Contains filter functionality. You can filter through gender and can see which product on sale.
 
